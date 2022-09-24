@@ -1,0 +1,8 @@
+html {
+	/*adjust all REM unit sizing by adjusting the root
+    font-size for each breakpoint.*/
+	font-size: 62.5%;
+	@media (max-width: 767px) {
+		font-size: 50%;
+	}
+}

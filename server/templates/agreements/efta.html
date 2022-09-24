@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Credit Card and ACH Authorization</title>
+    <style>
+      :root,
+      body {
+        padding: 24px 24px 0 24px;
+        margin: 0;
+        font: 'Arial';
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <h3 style="text-align: center">CREDIT CARD / ACH PAYMENT AUTHORIZATION</h3>
+
+    <p>
+      In this Authorization, “I,” “me” and “my” mean the person who signs this
+      Authorization below. “You,” and “your” means {{merchantData.name}}, or any
+      assignee.
+    </p>
+
+    <p>
+      By signing below, I authorize you to initiate a one-time charge and/or
+      regularly scheduled recurring charges against my credit card or debit card
+      account identified below, or a one-time charge and/or regularly scheduled
+      recurring charges by ACH debit entry from my deposit account identified
+      below, and to credit those amounts (when received by you) to the amounts
+      due from me to you under Buy Now Pay Later Financing Agreement, Account
+      Number: {{ACHData.accountNumber}}. If necessary, I also authorize you to
+      initiate transactions to correct any erroneous payment transaction. I also
+      authorize you to initiate a one-time transaction to collect a fee of $
+      {{merchantData.NSFFee}} if any payment is rejected by my bank due to
+      insufficient funds in my account or available credit on my credit card
+      account, and/or to collect any late fee due under my contract identified
+      above. I understand that each transaction will appear on my bank
+      statement.
+    </p>
+
+    <hr style="border-style: dashed" />
+
+    <p>
+      By signing this form, you give us permission to debit your account for the
+      amount(s) indicated on or after the indicated date(s).
+    </p>
+
+    <p style="margin: 0">
+      <input type="checkbox" {% if userData.selectedOffer.downPayment === true
+      %} checked {% endif %} disabled style="padding: 0px 5px 0px 0px;
+      vertical-align: top" /> - One (1) Time Charge – I, {{userData.name}}
+      authorize {{merchantData.name}} to charge my credit card or bank account
+      indicated below for $ {{userData.selectedOffer.downPaymentDollarAmount}}
+      on {{today}}.
+    </p>
+
+    <p>
+      <input
+        type="checkbox"
+        checked
+        disabled
+        style="padding: 0px 5px 0px 0px; vertical-align: top"
+      />
+      - Recurring Payments – I, {{userData.name}} authorize
+      {{merchantData.name}} to charge my credit card or bank account indicated
+      below for $ {{userData.selectedOffer.monthlyPayment}}, beginning on
+      {{userData.nextPaymentSchedule}}. Payments will occur monthly for a total
+      of {{userData.selectedOffer.term}} transactions. If any payment date falls
+      on a weekend or holiday, I understand and agree that the payment may be
+      executed on the next business day. If my payment amount changes, I will
+      receive notice from you at least 10 days prior to the payment being
+      collected. If the outstanding balance I owe on my contract identified
+      above is less than the payment amount stated above, I understand and agree
+      that the final payment will be an amount equal to my total outstanding
+      balance.
+    </p>
+
+    <h3 style="page-break-before: always">Billing Information</h3>
+
+    <p style="margin: 0">Name: {{userData.name}}</p>
+    <p style="margin: 0">
+      Address: {{userData.address}}, {{userData.city}}, {{userData.state}},
+      {{userData.zip}}
+    </p>
+    <p style="margin: 0">Email: {{userData.email}}</p>
+    <p style="margin: 0">Phone Number: {{userData.phone}}</p>
+
+    <div style="display: flex">
+      <div style="flex: 1">
+        <h3>Bank (ACH)</h3>
+        <div
+          style="
+            box-sizing: border-box;
+            margin-right: 30px;
+            border: 1px solid #000;
+            padding: 8px;
+            height: 14.75rem;
+            width: 18.29rem;
+          "
+        >
+          <div style="display: flex; justify-content: space-between">
+            <div style="display: flex; align-items: center">
+              <input type="checkbox" {% if ACHData.accountNumber !== "N/A" %}
+              checked {% endif %} disabled style="padding-left: 0" />
+              <span>Checking</span>
+            </div>
+            <div style="display: flex; align-items: center">
+              <input type="checkbox" disabled />
+              <span>Savings</span>
+            </div>
+          </div>
+          <p>Name on Acct: {{ACHData.accountHolder}}</p>
+          <p>Bank Name: N/A</p>
+          <p>Account Number: {{ACHData.accountNumber}}</p>
+          <p>Routing Number: {{ACHData.routingNumber}}</p>
+        </div>
+      </div>
+
+      <div style="flex: 1">
+        <h3>Credit Card / Debit Card</h3>
+        <div
+          style="
+            box-sizing: border-box;
+            border: 1px solid #000;
+            padding: 8px;
+            height: 14.75rem;
+            padding-top: 43px;
+            width: 18.29rem;
+          "
+        >
+          <p>Cardholder Name: {{cardData.cardholderName}}</p>
+          <p>Card Number: {{cardData.cardNumber}}</p>
+          <p>Exp. Date: {{cardData.expirationDate}}</p>
+          <p>CVV: {{cardData.cvv}}</p>
+        </div>
+      </div>
+    </div>
+
+    <p style="margin-top: 32px">
+      I understand that this authorization will remain in effect until I cancel
+      it in writing, and I agree to notify the merchant in writing of any
+      changes in my account information or termination of this authorization at
+      least 15 days prior to the next billing date. If the above noted payment
+      dates fall on a weekend or holiday, I understand that the payments may be
+      executed on the next business day. For ACH debits to my checking/savings
+      account, I understand that because these are electronic transactions,
+      these funds may be withdrawn from my account as soon as the above noted
+      periodic transaction dates. In the case of an ACH Transaction being
+      rejected for Non-Sufficient Funds (NSF) I understand that the merchant may
+      at its discretion attempt to process the charge again within 30 days, and
+      agree to an additional $ {{ merchantData.NSFFee}} charge for each attempt
+      returned NSF which will be initiated as a separate transaction from the
+      authorized recurring payment. I acknowledge that the origination of ACH
+      transactions to my account must comply with the provisions of U.S. law. I
+      certify that I am an authorized user of this credit card/bank account and
+      will not dispute these scheduled transactions with my bank or credit card
+      company; so long as the transactions correspond to the terms indicated in
+      this authorization form.
+    </p>
+
+    <div
+      style="
+        display: flex;
+        align-items: end;
+        width: 100%;
+        height: 110px;
+        page-break-before: always;
+      "
+    >
+      <div
+        style="display: flex; width: 75%; align-items: end; margin-right: 5px"
+      >
+        <p style="margin: 0; min-width: 210px">
+          <strong>AUTHORIZED SIGNATURE</strong>
+        </p>
+        <div style="border-bottom: 1px solid #000; width: 100%">
+          <img
+            src="{{userData.ricSignature}}"
+            alt="User's signature"
+            style="width: 80%"
+          />
+        </div>
+      </div>
+      <div style="display: flex; width: 25%; align-items: end">
+        <p style="margin: 0; flex: 1, align-self: end">DATE</p>
+        <div
+          style="padding-left: 8px; border-bottom: 1px solid #000; width: 100%"
+        >
+          {{today}}
+        </div>
+      </div>
+    </div>
+
+    <div
+      style="
+        display: flex;
+        width: 55%;
+        align-items: end;
+        margin: 24px 0px 0px 0px;
+      "
+    >
+      <p style="margin: 0; width: 150px">PRINT NAME</p>
+      <div style="border-bottom: 1px solid #000; width: 100%">
+        {{userData.name}}
+      </div>
+    </div>
+
+    <p style="margin: 24px 0px 0px 0px">Name: {{userData.name}}</p>
+    <p style="margin: 0">
+      Address: {{userData.address}}, {{userData.city}} , {{userData.state}},
+      {{userData.zip}}
+    </p>
+    <p style="margin: 0">Email: {{userData.email}}</p>
+    <p style="margin: 0">Phone Number: {{userData.phone}}</p>
+    <p style="margin: 0">Date: {{today}}</p>
+    <p style="margin: 0">IP: {{ip}}</p>
+  </body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <style>
+		body{ font-family:Arial, Helvetica, sans-serif}
+      .wrapper {
+        border: 5px solid #eee;
+        border-radius: 5px;
+      }
+
+      .emailHeader {
+        width: auto;
+        background-color: #63944c;
+        color: #fff;
+        height: 90px;
+        max-height: 90px;
+        text-align: center;
+        padding: 10px;
+        border-bottom: 4px solid rgba(241, 182, 73, 0.85);
+        font-size: 150%;  line-height:90px
+      }
+
+      .merchantHeaderName {
+        text-align: center;
+        color: #fff;
+        font-size: 190%;
+      }
+
+      .emailLogo {
+        height: 40px;
+        max-height: 40px;
+        width: auto;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        color: rgb(47, 97, 183);
+        font-size: 30px;
+        font-weight: 700;
+      }
+
+      .emailLayout {
+        margin: 0 auto;
+        max-width: 600px;
+        min-width: 320px;
+        width: auto;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        word-break: break-word;
+      }
+
+      .emailLayoutMargins {
+        margin-bottom: 50px;
+      }
+
+      .emailSignature {
+        margin-top: 30px;
+        text-align: left;
+        color: #60666d;
+        font-size: 16px;
+      }
+
+      .emailBodyOuterDiv {
+        color: #60666d;
+        font-size: 16px;
+        text-align: left;
+      }
+
+      .emailGreetings {
+        margin-bottom: 30px;
+        font-style: normal;
+        font-weight: normal;
+        color: #60666d;
+        font-size: 20px;
+        text-align: left;
+      }
+
+      .btn-application {
+        font-size: 14px;
+        webkit-font-smoothing: antialiased;
+        cursor: pointer;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -o-user-select: none;
+        user-select: none;
+        display: inline-block;
+        font-weight: normal;
+        text-align: center;
+        text-decoration: none;
+        -moz-transition: all 0.4s ease;
+        -webkit-transition: all 0.4s ease;
+        -o-transition: all 0.4s ease;
+        background-color: #63944c;
+        border-radius: 6px;
+        border-width: 0px;
+        color: rgb(255, 255, 255);
+        font-family: sans-serif;
+        height: auto;
+        transition: all 0.4s ease;
+        padding: 8px 20px;
+        text-shadow: none;
+        width: auto;
+        line-height: 1.5em;
+      }
+
+      .emailBold {
+        font-weight: 700;
+      }
+
+      table,
+      th,
+      td {
+        border: 1px solid black;
+      }
+
+      td {
+        padding: 5px;
+      }
+
+      table {
+        margin: auto;
+        width: 70%;
+        border-collapse: collapse;
+      }
+
+      p {
+        text-align: left;
+        color: #60666d;
+      }
+
+      @media (max-width: 721px) {
+        .emailHeader {
+          max-height: 700px;
+        }
+
+        .modernHealthName {
+          font-size: 50%;
+        }
+
+        .merchantHeaderName {
+          font-size: 80%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="emailHeader">
+        <div class="emailHeaderLogo">
+          <span class="modernHealthName">Welcome Email</span>
+          <br />
+        </div>
+      </div>
+      <div class="emailLayout">
+        <div class="emailLayoutMargins">
+          <div class="emailBodyOuterDiv">
+            <h2 class="emailGreetings">Hi {{ userName }}!</h2>
+            <div class="emailBodyMessage">
+              Thanks for financing your treatment with Mirza Pay, via Mirza
+              <br />
+              <br />
+              Here’s a brief overview of your loan, as of {{ dateCreated }}:
+              <br />
+              <br />
+              Total Loan Amount: {{ payOff }}<br />
+              Financing Term (with interest): {{ financingTerm }}<br />
+              Promotional Term (to avoid interest): {{ payoffTerm }} <br />
+              Minimum Monthly Payment Due on {Due Date}:: {{ minAmt }} <br />
+              Suggested Monthly Payment (to avoid interest): {{ payOffPromo }} <br />
+              <br />
+              <br />
+              Click here to view your Client Portal:
+              https://mirza-bw.alchemylms.com/login
+              <br /><br />
+              <font color = "red"> <b><i> **If AutoPay is not set up** </i></b>
+            </font>
+              <br />
+              Just a friendly reminder that AutoPay is available for your payment plan. AutoPay gives you peace of mind throughout your treatment experience—goodbye, missed payments and unnecessary stress! 
+              <br />
+              <font color = "black" size = '8' ></font><b><i>Added bonus: Setting up recurring payments with AutoPay will help satisfy your suggested Promo payment required every month, so you can avoid paying interest (as long as you pay in full within your promo period).</i> 
+            </b></font>
+            <br /><br />
+            <font color = "red">Please click on the link below to complete your AutoPay plan:</font>
+            <br />
+            <font color = "red">https://alchemy.alchemylms.com/repayment</font>
+            <br />
+            <font color = "red"><b><i>**If AutoPay is not set up**<i></b></font>
+            <br />
+            <br />
+            <br />
+            We can’t wait to help you ignite your true potential, and we’re here to help you every step of the way! 
+            If you have any questions about your customized treatment plan, please feel free to contact your Mirza Treatment Specialist.
+            <br /><br />
+            For any specific finance questions, please feel free to reach out to our Finance Support team at support-mirza@heymirza.com. 
+            </div>
+          </div>
+          <div class="emailSignature">
+            Thanks!
+            <br />
+      
+            Team Mirza  <br />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+

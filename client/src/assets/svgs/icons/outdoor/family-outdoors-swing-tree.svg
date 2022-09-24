@@ -1,0 +1,8 @@
+<svg width="26" height="24" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M22 11.25C22.9066 11.2553 23.7279 10.7159 24.0831 9.8817C24.4384 9.04754 24.2583 8.08164 23.6263 7.43157C22.9942 6.78151 22.0338 6.57432 21.19 6.906C20.9025 5.09024 19.3383 3.75244 17.5 3.75C17.3324 3.75531 17.1653 3.77202 17 3.8C15.9671 1.56615 13.5193 0.351635 11.1157 0.880427C8.71206 1.40922 6.99996 3.53892 6.99996 6C6.99996 6.111 7.02596 6.215 7.03296 6.324C6.13814 5.26312 4.63171 4.95596 3.39298 5.58183C2.15424 6.20769 1.50776 7.60259 1.83089 8.95232C2.15402 10.302 3.3621 11.253 4.74996 11.25H22Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M9.25 11.25V23.25" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M9.25 18C5.65 18 4.75 15.75 4.75 14.25" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M14.5 11.25V21" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M20.5 11.25V21" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M13 21H22" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

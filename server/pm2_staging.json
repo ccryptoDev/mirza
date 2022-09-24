@@ -1,0 +1,25 @@
+{
+  "apps": [
+    {
+      "name": "mirza",
+      "script": "dist/src/main.js",
+      "watch": false,
+      "log_date_format": "YYYY-MM-DD HH:mm:ss.SSS",
+      "out_file": "~/.pm2/logs/mirza.log",
+      "error_file": "~/.pm2/logs/mirza.log",
+      "max_memory_restart": "512M",
+      "env": {
+        "NODE_ENV": "test",
+        "PORT": 19191,
+        
+        "PLAID_CLIENT_ID": "62fce68c8e95650013d547e5",
+        "PLAID_SECRET": "16df569da348fe5aa2bcde151352d5"
+      },
+      "plaid": {
+        "PLAID_ENV": "staging",
+        "PLAID_CLIENT_ID": "62fce68c8e95650013d547e5",
+        "PLAID_SECRET": "16df569da348fe5aa2bcde151352d5"
+      }
+    }
+  ]
+}

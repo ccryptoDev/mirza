@@ -1,0 +1,21 @@
+{
+  "apps": [
+    {
+      "name": "stately-frontend",
+      "script": "yarn",
+      "args": "start",
+      "watch": true,
+      "log_date_format": "YYYY-MM-DD HH:mm:ss.SSS",
+      "out_file": "~/.pm2/logs/stately.log",
+      "error_file": "~/.pm2/logs/stately.log",
+      "max_memory_restart": "1024M",
+      "env": {
+        "NODE_ENV": "staging",
+	      "REACT_APP_BASE_URL": "http://localhost:8019",
+	      "DANGEROUSLY_DISABLE_HOST_CHECK": true,
+        "BROWSER": "none",
+        "PORT": 3001
+      }
+    }
+  ]
+}

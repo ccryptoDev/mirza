@@ -1,0 +1,17 @@
+{
+  "apps": [
+    {
+      "name": "mirza",
+      "script": "dist/src/main.js",
+      "exec_mode": "cluster",
+      "watch": false,
+      "log_date_format": "YYYY-MM-DD HH:mm:ss.SSS",
+      "out_file": "~/.pm2/logs/mirza.log",
+      "error_file": "~/.pm2/logs/mirza.log",
+      "env": {
+        "NODE_ENV": "production",
+        "PORT": 8000
+      }
+    }
+  ]
+}

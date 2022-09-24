@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Credit Report Authorization Form</title>
+    <style>
+      :root,
+      body {
+        padding: 24px;
+        margin: 0;
+        font: 'Arial';
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Credit Report Authorization Form</h3>
+
+    <p>
+      I, {{user.name}}, authorize Mirza to obtain a Background Check
+      and/or Consumer Credit Report on me.
+    </p>
+
+    <p>
+      This authorization is valid for purposes of verifying information given
+      pursuant to obtaining a business loan, personal loan, employment, leasing,
+      rental, business negotiations, or any other lawful purpose covered under
+      the Fair Credit Reporting Act (FCRA).
+    </p>
+
+    <p>
+      The Background Check may contain information available in the Public
+      Domain and interviews with vendors, customers, previous employers and/or
+      their agents.
+    </p>
+
+    <p>
+      By my signature below, I hereby authorize all corporations, former
+      employers, credit agencies, educational institutions, law enforcement
+      agencies, city, state, county and federal courts and agencies, military
+      services and persons to release all information they may have about me
+      including criminal and driving history. This authorization shall be valid
+      in original or copy form.
+    </p>
+
+    <p style="margin: 0">Print Name: {{user.name}}</p>
+    <p style="margin: 0">
+      Address: {{user.street}} {{user.unitApt}}, {{user.city}}, {{user.state}},
+      {{user.zipCode}}
+    </p>
+    <p style="margin: 0">Email: {{user.email}}</p>
+    <p style="margin: 0">Phone Number: {{user.phoneNumber}}</p>
+    <p style="margin: 0">Date: {{today}}</p>
+    <p style="margin: 0">IP: {{ip}}</p>
+  </body>
+</html>

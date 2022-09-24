@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <style>
+      :root,
+      body {
+        padding: 24px;
+        margin: 0;
+        font: 'Arial';
+      }
+      .signatures {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 10%;
+        grid-row-gap: 30px;
+        align-items: flex-end;
+      }
+      .signatures .signature-field {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        width: 100%;
+        border-bottom: 1px solid #000;
+      }
+
+      .signatures .signature-field .signatureDate {
+        display: inline-block;
+        margin-left: auto;
+        margin-bottom: 0px !important;
+      }
+
+      .signatures .signature-field .signature {
+        width: 79%;
+        height: auto;
+      }
+      .signatures .signature-labels {
+        display: flex;
+        justify-content: space-between;
+        padding-right: 10px;
+      }
+
+      @media (max-width: 1200px) {
+        .signatures .signature-field .signature {
+          width: 70%;
+          height: auto;
+        }
+      }
+
+      @media (max-width: 990px) {
+        .signatures .signature-field .signature {
+          width: 67%;
+          height: auto;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .signatures {
+          display: block;
+        }
+        .signatures .signature-item {
+          margin-bottom: 30px;
+        }
+        .signatures-table .assignment,
+        .signatures-table .signatures {
+          display: block;
+        }
+        .signatures-table .signatures div {
+          margin-top: 20px;
+        }
+      }
+
+      .header {
+        text-align: center;
+      }
+      .sub-header {
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+      }
+      .clause-number {
+        font-weight: normal;
+      }
+      .clause-title {
+        margin-left: 30px;
+        text-decoration: underline;
+        font-weight: normal;
+      }
+      .state-header {
+        font-weight: normal;
+        text-decoration: underline;
+      }
+      .list-item-indentation {
+        text-indent: 42.8px;
+      }
+      .list-item-text-padding {
+        padding-left: 30px;
+      }
+    </style>
+    <title>RIC</title>
+  </head>
+  <body>
+    <main class="document-wrapper">
+      <section id="printMe" ref="{ref}">
+        <div style="fontsize: 0.9rem">
+          <h2 style="text-align: center">
+            BUY NOW PAY LATER FINANCING AGREEMENT
+          </h2>
+
+          <p>
+            This Buy Now Pay Later Financing Agreement (“Agreement”) is by and
+            between {{userData.fullName}}, (“Funding Recipient”) and
+            {{provider.name}} (alternatively “Mirza” or “Funder”), a Nevada
+            corporation, as the source of the financing contemplated hereunder.
+            Use of the words “we,” “us,” and “our” refer to Mirza or its
+            assignees. Use of the words “you” and “your” refer to Funding
+            Recipient as recipient of the working capital funds. Please read
+            this Agreement and keep a copy.
+          </p>
+
+          <p>
+            You acknowledge that you have read, agree with, and accept all terms
+            and conditions contained in this Agreement. In consideration of the
+            promises and the respective representations, warranties, covenants,
+            agreements, and conditions contained below and on the following
+            pages, you and Funder enter into this Agreement and agree with, and
+            accept, the terms and conditions set forth herein.
+          </p>
+
+          <hr />
+
+          <h2 class="header sub-header">PAYMENT SCHEDULE</h2>
+
+          <p>
+            Please refer to the table in your application which states the
+            amounts and due dates for repayment of the total amount funded
+            hereunder including any applicable fees and charges (“ Payment
+            Schedule”).
+          </p>
+
+          <p>
+            Finance Charge (the dollar amount the credit will cost you):
+            {{selectedOffer.contractAmount}}
+            <br />
+            Annual Percentage Rate (the cost of your credit as a yearly rate):
+            {{selectedOffer.apr}}%<br />
+            Applicable Fees: We may assess a late fee of {{provider.lateFee}}
+            for any payment not received by us within seven (7) days of its
+            scheduled due date (subject to any additional grace period required
+            by applicable law).
+          </p>
+
+          <h2 class="header sub-header">TERMS OF AGREEMENT</h2>
+
+          <p style="font-style: italic">
+            Please note that Section 21 of this Agreement includes provisions
+            that govern how claims you or we may have against each other are
+            resolved. These provisions may require arbitration for a dispute
+            that you assert against us. The Agreement also includes important
+            terms regarding your rights related to fees and governing law.
+          </p>
+
+          <div style="display: flex; align-items: center">
+            <h3 class="clause-number">1.</h3>
+            <h3 class="clause-title">
+              Promise to Pay and Disbursement Authorization
+            </h3>
+          </div>
+
+          <p>
+            You agree to pay the amount due today on your Payment Schedule, if
+            any, as well as all additional future payments (each, an “
+            <strong>Installment Payment</strong>”) in the amounts shown in the
+            Payment Schedule. We agree to disburse proceeds to the merchant
+            identified in the application for this Buy Now, Pay Later
+            transaction (and to be identified on your funding receipt). Those
+            proceeds will allow you to complete a purchase. You also must pay
+            any late fees you incur under this Agreement.
+          </p>
+
+          <p>
+            You understand that this Agreement may be assigned without your
+            permission or prior notice to you, as more fully described in
+            Section 20 below. Upon an assignment, you must pay the assignee and
+            perform all of your obligations to it and not the Funder. You may
+            prepay any amount due without a penalty. Any prepayment will be
+            applied towards upcoming payments in the order they become due.
+          </p>
+
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              page-break-before: always;
+            "
+          >
+            <h3 class="clause-number">2.</h3>
+            <h3 class="clause-title">
+              Authorization to Obtain Credit Report and Credit Reporting
+            </h3>
+          </div>
+
+          <p class="list-item-identation">
+            <span>a.</span>
+            <span class="list-item-text-padding">You</span> authorize us to
+            obtain your credit reports from one or more credit reporting
+            agencies for any purpose permitted by applicable law, including: (i)
+            to authenticate your identity; (ii) to make installment credit
+            decisions; (iii) to service your installment payments; (iv) to send
+            you future marketing information; and/or (v) for internal analytics
+            and credit modeling purposes. You understand that initially
+            submitting personal information will not affect your credit score,
+            however, submitting a loan application or accepting a loan may
+            result in an inquiry on your credit report that may affect your
+            credit score.
+          </p>
+
+          <p class="list-item-identation">
+            <span>b.</span>
+            <span class="list-item-text-padding">We</span> may report
+            information about your account to credit bureaus. Late payments,
+            missed payments, or other defaults on your account may be reflected
+            in your credit report.
+          </p>
+
+          <p class="list-item-identation">
+            <span>c.</span>
+            <span class="list-item-text-padding">If</span> you believe that
+            inaccurate information has been reported about your Installment
+            Payments to a credit bureau or other consumer reporting agency,
+            please send notification to the following address and when you
+            write, please identify the specific information that you believe is
+            incorrect and why you believe it is incorrect. Mirza
+            Corporation\Attn: **\Address
+          </p>
+
+          <div style="display: flex; align-items: center">
+            <h3 class="clause-number">3.</h3>
+            <h3 class="clause-title">Installment Payments</h3>
+          </div>
+
+          <p class="list-item-identation">
+            <span>a.</span>
+            <span class="list-item-text-padding">If</span> you miss a payment,
+            your next payment must include the originally scheduled payment, the
+            missed payment, any previously missed payment, and any late charges
+            due as a result of a missed payment.
+          </p>
+
+          <p class="list-item-identation">
+            <span>b.</span>
+            <span class="list-item-text-padding">You</span> will take all
+            necessary steps to ensure you keep your contact information as
+            listed on the application to ensure you receive notifications
+            hereunder. Your payment will still be due on your regularly
+            scheduled due date even if you do not receive a notification from
+            us.
+          </p>
+
+          <div style="display: flex; align-items: center">
+            <h3 class="clause-number">4.</h3>
+            <h3 class="clause-title">Making Your Installment Payments</h3>
+          </div>
+
+          <p>
+            Your payment must be made in U.S. dollars from a valid U.S. source
+            in a form acceptable to us. Conforming payments can be made in the
+            following ways:
+          </p>
+
+          <p class="list-item-identation">
+            <span>a.</span>
+            <span
+              class="list-item-text-padding"
+              style="text-decoration: underline"
+            >
+              Automatic Payment.
+            </span>
+            Additional disclosures will be provided at the time of enrollment.
+            By authorizing us to take automatic payments, you authorize us to
+            schedule an ACH debit from your deposit account identified on the
+            ACH Authorization form executed herewith on each due date in the
+            Payment Schedule in the sum of: (i) the originally scheduled
+            payment, (ii) any missed payment, (iii) any previously missed
+            payments, and (iv) any late charge due as a result of a missed
+            payment.
+          </p>
+
+          <div style="display: flex; align-items: center">
+            <h3 class="clause-number">5.</h3>
+            <h3 class="clause-title">Payment Processing</h3>
+          </div>
+
+          <p class="list-item-identation">
+            <span>a.</span>
+            <span class="list-item-text-padding">You</span> agree that we may
+            accept and process payments without losing any rights.
+          </p>
+
+          <p class="list-item-identation">
+            <span>b.</span>
+            <span class="list-item-text-padding">You</span> agree that neither
+            we nor any of our service providers are responsible if your
+            financial institution rejects a payment you make. You will be
+            responsible for any fees charged by your financial institution.
+          </p>
+
+          <p class="list-item-identation">
+            <span>c.</span>
+            <span class="list-item-text-padding">You</span> agree and authorize
+            us to resubmit and/or collect returned payments electronically if
+            you have opted to pay electronically.
+          </p>
+
+          <p class="list-item-identation">
+            <span>d.</span>
+            <span class="list-item-text-padding">You</span> agree and authorize
+            us to make electronic reversals or credits to any debit card you
+            have provided in the event of an erroneous debit or as otherwise
+            appropriate.
+          </p>
+
+          <p class="list-item-identation">
+            <span>e.</span>
+            <span class="list-item-text-padding">You</span> agree and authorize
+            us to adjust your Payment Schedule to correct errors, to process
+            returned and reversed payments, and to manage other issues
+            pertaining to your account.
+          </p>
+
+          <p class="list-item-identation">
+            <span>f.</span>
+            <span class="list-item-text-padding">Your</span> funds may be
+            withdrawn from your deposit account as early as the same day your
+            payment is received.
+          </p>
+
+          <div style="display: flex; align-items: center">
+            <h3 class="clause-number">6.</h3>
+            <h3 class="clause-title">How Your Payments Are Applied</h3>
+          </div>
+
+          <p>
+            Except as prohibited by law, payments will be applied to your
+            obligation as we determine in our sole discretion.
+          </p>
+
+          <div style="display: flex; align-items: center">
+            <h3 class="clause-number">7.</h3>
+            <h3 class="clause-title">Late Payments</h3>
+          </div>
+
+          <p>
+            If an Installment Payment is not paid by the due date in the Payment
+            Schedule and remains unpaid for a period of seven (7) days after the
+            due date (or such additional grace period required by applicable
+            law), a late fee of 3% of the invoice amount will be imposed. The
+            terms of this paragraph are subject to applicable state law.
+          </p>
+
+          <div style="display: flex; align-items: center">
+            <h3 class="clause-number">8.</h3>
+            <h3 class="clause-title">Default</h3>
+          </div>
+
+          <p class="list-item-identation">
+            <span>a.</span>
+            <span class="list-item-text-padding">Unless</span> expressly
+            prohibited by law, you will be in default on your payment
+            obligations hereunder if:
+          </p>
+
+          <ul style="padding-inline-start: 80px">
+            <li>You do not make your payment in full when it is due;</li>
+            <li>
+              Any payment you make is rejected or not paid by your bank or
+              cannot be processed by your bank;
+            </li>
+            <li>
+              You file or become the subject of a bankruptcy or insolvency
+              proceeding;
+            </li>
+            <li>
+              You are unable to repay your obligations, including upon death or
+              legally declared incapacity;
+            </li>
+            <li>
+              You provided inaccurate, untrue, or incomplete information, or you
+              otherwise tried to defraud or provide material misrepresentations
+              to us or our service providers;
+            </li>
+            <li>You do not comply with any term of this Agreement; and/or</li>
+            <li>You permanently reside outside the United States.</li>
+          </ul>
+
+          <p class="list-item-identation">
+            <span>b.</span>
+            <span class="list-item-text-padding">If</span> you are in default,
+            we may take certain actions with respect to your credit without
+            notifying you unless notification is required by law. For example,
+            depending on the default the following actions may be taken:
+          </p>
+
+          <ul style="padding-inline-start: 80px">
+            <li>
+              If you are enrolled in automatic payments, your debit card will be
+              debited the amount of any payment not paid by the due date;
+            </li>
+            <li>
+              You may be unable to obtain credit from us in the future; and/or
+            </li>
+            <li>Any other action to the extent not prohibited by law.</li>
+          </ul>
+
+          <p class="list-item-identation">
+            <span>c.</span>
+            <span class="list-item-text-padding">If</span> you do not make your
+            payment obligations in full on the final due date in your Payment
+            Schedule (“ <strong>Final Due Date</strong>”), you authorize us to
+            initiate payments to us from your deposit account identified on the
+            application. Except as set forth below, a payment that we initiate
+            under this authorization may be in the amount required to pay off
+            your loan, including any late charges (“
+            <strong>Payoff Amount</strong>”). This authorization will be
+            continuing and will remain in effect until your Payoff Amount is
+            paid in full. For the avoidance of doubt, we may initiate multiple
+            separate payment transactions under this authorization.
+          </p>
+
+          <p>
+            This subsection is not intended to create or to give us a security
+            interest in your deposit account or any funds added to thereto. We
+            expressly disclaim any priority over other creditors or a bankruptcy
+            trustee in a bankruptcy proceeding or similar proceeding as a result
+            of the payment authorization in this subsection.
+          </p>
+
+          <div style="display: flex; align-items: center">
+            <h3 class="clause-number">9.</h3>
+            <h3 class="clause-title">Disputes with Merchant; Refunds</h3>
+          </div>
+
+          <p>
+            If you are not satisfied with the goods you receive from a merchant,
+            you will make good faith efforts to resolve any issues directly with
+            the merchant. Refunds of goods or services purchased with this
+            financing are subject to the merchant’s refund policy and are not
+            our responsibility. If a merchant issues a refund to us of the
+            entire amount we disburse under this Agreement, then this Agreement
+            will terminate and you will not be responsible to make any payments.
+            If a merchant issues a refund to us of less than the entire amount
+            we disburse under this Agreement, the refunded amount will be
+            applied against your loan balance as appropriate and subject to
+            applicable law.
+          </p>
+
+          <div style="display: flex; align-items: center">
+            <h3 class="clause-number">10.</h3>
+            <h3 class="clause-title">Transaction Documents</h3>
+          </div>
+
+          <p style="margin-left: 57px">
+            The following documents (“<strong>Transaction Documents</strong>”)
+            govern your financing:
+          </p>
+          <ul style="padding-inline-start: 80px">
+            <li>
+              The E-SIGN Act Consent provided to you when you applied for the
+              financing;
+            </li>
+            <li>This Agreement;</li>
+            <li>
+              Any Credit Report Authorizations you agreed to when you applied
+              for the financing;
+            </li>
+            <li>
+              Any Automated Payment Authorization you agreed to when you applied
+              for the financing;
+            </li>
+            <li>Any Privacy Policies you agreed to; and</li>
+            <li>Any Updated Terms and Updated Payment Schedule.</li>
+          </ul>
+          <p>Please read these carefully and keep them for future reference.</p>
+
+          <div style="display: flex; align-items: center">
+            <h3 class="clause-number">11.</h3>
+            <h3 class="clause-title">Entire Agreement</h3>
+          </div>
+
+          <p>
+            The Transaction Documents constitute the entire agreement between
+            you and us with respect to this financing. You acknowledge and agree
+            that no oral representations shall vary, modify, or amend the terms
+            and conditions of the Transaction Documents. Any failure by us to
+            exercise, or delay by us in exercising, any right or remedy shall
+            not operate as a waiver thereof.
+          </p>
+
+          <div style="display: flex; align-items: center">
+            <h3 class="clause-number">12.</h3>
+            <h3 class="clause-title">Applicable Law</h3>
+          </div>
+
+          <p>
+            This Agreement and any dispute arising hereunder will be governed by
+            Nevada law and/or applicable federal law (including the Federal
+            Arbitration Act) as applied to agreements entered into and to be
+            performed entirely within Nevada, without regard to its choice of
+            law or conflicts of law principles that would require application of
+            law of a different jurisdiction.
+          </p>
+
+          <div style="display: flex; align-items: center">
+            <h3 class="clause-number">13.</h3>
+            <h3 class="clause-title">Service Providers</h3>
+          </div>
+
+          <p>
+            We may retain service providers to perform on our behalf any actions
+            authorized or contemplated by this Agreement. Any authorization or
+            permission that you grant to us in this Agreement (or otherwise in
+            connection with your financing) shall extend to and cover any
+            service provider acting on our behalf or at our direction. Without
+            limiting the generality of the foregoing, you expressly authorize
+            our affiliates, when acting as our service provider, to take any
+            actions authorized or contemplated by this Agreement regardless of
+            whether such actions are authorized or contemplated hereunder.
+          </p>
+
+          <p>
+            Other provisions in this Agreement that expressly extend rights or
+            protections under this Agreement to our service providers (either
+            generally or to specific service providers) are included for the
+            avoidance of doubt and should not be interpreted to limit the
+            operation or effect of the general provisions in this Section.
+          </p>
+
+          <div style="display: flex; align-items: center">
+            <h3 class="clause-number">14.</h3>
+            <h3 class="clause-title">Company and Financial Information</h3>
+          </div>
+
+          <p>
+            You promise to provide financial information about you that may be
+            requested from time to time for underwriting, security, and/or other
+            purposes related to the management of your account. This includes,
+            but is not limited to:
+          </p>
+          <ul>
+            <li>Your legal name</li>
+            <li>
+              A valid U.S. mailing address and residential address (if
+              different);
+            </li>
+            <li>Your date of formation;</li>
+            <li>
+              Your Social Security Number or Taxpayer Identification Number as
+              applicable;
+            </li>
+            <li>Your telephone number(s); and</li>
+            <li>
+              Your financial documents needed to verify revenue information.
+            </li>
+          </ul>
+
+          <p>
+            You promise to promptly update your company and financial
+            information as stated in your application, including but not limited
+            to your name, street address, email address or telephone number. In
+            doing so, you agree that you will not provide false information or
+            signatures, electronic or otherwise, at any time. You may be asked
+            for additional documents to verify any changes. You understand that
+            if you move to a state where this product is not offered, you will
+            be unable to receive subsequent financings.
+          </p>
+
+          <div style="display: flex; align-items: center">
+            <h3 class="clause-number">15.</h3>
+            <h3 class="clause-title">Age and Residency</h3>
+          </div>
+
+          <p>
+            By entering into this Agreement, you agree that your principal
+            and/or authorized representative is at least 18 years of age or
+            older and of sufficient legal age to enter into a contract in the
+            state where you reside and you are a resident of the United States
+            when you execute this Agreement.
+          </p>
+
+          <div style="display: flex; align-items: center">
+            <h3 class="clause-number">16.</h3>
+            <h3 class="clause-title">Communications and Contact Information</h3>
+          </div>
+
+          <p class="list-item-identation">
+            <span>a.</span>
+            <span class="list-item-text-padding">You</span> consent to accept
+            and receive communications from us including e-mail, text messages,
+            calls, and push notifications to the cellular telephone number you
+            provide when you inquire about credit or update your contact
+            information. Such communications may include but are not limited to
+            communications regarding applications for credit, credit decisions,
+            disclosures, servicing, collections, requests for secondary
+            authentication, receipts, reminders, and notifications regarding
+            updates to your account or account support. Call and text message
+            communications may be generated by automatic telephone dialing
+            systems. Standard message and data rates applied by your cell phone
+            carrier may apply to the text messages sent to you.
+          </p>
+
+          <p class="list-item-identation">
+            <span>b.</span>
+            <span class="list-item-text-padding">You</span> may opt-out of
+            receiving promotional email communications by following the
+            unsubscribe options on such emails. You may opt out of any
+            promotional phone calls by informing the caller that you would not
+            like to receive future promotional calls. You may also opt-out of
+            text messages from us at any time by texting END to the number you
+            received a text from. You acknowledge that opting out of receiving
+            communications may impact your use of our services.
+          </p>
+
+          <div style="display: flex; align-items: center">
+            <h3 class="clause-number">17.</h3>
+            <h3 class="clause-title">Submission of Ideas</h3>
+          </div>
+
+          <p>
+            You may submit comments or ideas about the loans and/or services you
+            receive (“<strong>Ideas</strong>”). By submitting any Idea, you
+            agree that your disclosure is gratuitous, unsolicited, and without
+            restriction, that it will not place us under any fiduciary,
+            confidentiality, or other obligation, and that we are free to use
+            the Idea without any additional compensation to you, and/or to
+            disclose the Idea on a non-confidential basis or otherwise to
+            anyone. You hereby grant us a perpetual, irrevocable, worldwide,
+            fully paid up, non-exclusive, sub-licensable, right and license to
+            use the User Content and all elements thereof, in any and all media
+            formats and forms, known now or hereafter devised for any purpose
+            that we choose.
+          </p>
+
+          <div style="display: flex; align-items: center">
+            <h3 class="clause-number">18.</h3>
+            <h3 class="clause-title">Severability</h3>
+          </div>
+
+          <p>
+            Except as otherwise provided herein and to the extent not prohibited
+            by law, if any provision of this Agreement is held to be invalid or
+            unenforceable, such determination shall not affect the validity or
+            enforceability of the remaining provisions of this Agreement. For
+            avoidance of doubt, this provision shall not apply to Section 21.
+          </p>
+
+          <div style="display: flex; align-items: center">
+            <h3 class="clause-number">19.</h3>
+            <h3 class="clause-title">Assignment and Delegation</h3>
+          </div>
+
+          <p class="list-item-identation">
+            <span>a.</span>
+            <span class="list-item-text-padding">This</span> Agreement will be
+            binding on, and benefit, any of your and Funder’s successors and
+            assigns. Except as provided by applicable law, Funder may sell,
+            assign, or transfer your payment obligation and this Agreement in
+            whole or in part without your permission and without prior notice to
+            you. Any assignee or assignees, including, for the avoidance of
+            doubt, any subsequent holders of this Agreement, will take Funder’s
+            place under this Agreement. You must pay them and perform all of
+            your obligations to them and not Funder. If you pay Funder after you
+            are notified that your payment obligations or this Agreement has
+            been transferred, Funder may return the payment to you, forward the
+            payment to the assignee, or manage it in another way that is
+            reasonable. You may not sell, assign, delegate or transfer your
+            obligations hereunder to a third-party without written permission of
+            Funder or any assignee of Funder. Any attempted sale, assignment or
+            transfer of your rights or duties hereunder by you in violation of
+            this section shall be null and void
+          </p>
+
+          <p class="list-item-identation">
+            <span>b.</span>
+            <span class="list-item-text-padding">If</span> this Agreement is
+            sold, assigned, or otherwise transferred, your rights under the law
+            or under this Agreement are in no way altered or impaired.
+          </p>
+
+          <p class="list-item-identation">
+            <span>c.</span>
+            <span class="list-item-text-padding">We</span> may retain service
+            providers to perform on our behalf any actions authorized or
+            contemplated by this Agreement. Any authorization or permission that
+            you grant to us in this Agreement (or otherwise in connection with
+            your loan) shall extend to and cover any service provider acting on
+            our behalf or at our direction. Without limiting the generality of
+            the foregoing, you expressly authorize any of our assignees or
+            affiliates when acting as our service provider, to take any actions
+            authorized or contemplated by this Agreement.
+          </p>
+
+          <br />
+
+          <p>
+            Other provisions in this Agreement that expressly extend rights or
+            protections under this Agreement to our service providers (either
+            generally or to specific service providers) are included for the
+            avoidance of doubt and should not be interpreted to limit the
+            operation or effect of the general provisions in this Section .
+          </p>
+
+          <div style="display: flex; align-items: center">
+            <h3 class="clause-number">20.</h3>
+            <h3 class="clause-title">Disputes</h3>
+          </div>
+
+          <p>
+            “<strong>Disputes</strong>” are defined as any claim, controversy,
+            or dispute between you and us, our processors, suppliers or
+            licensors (or their respective affiliates, agents, directors or
+            employees), whether arising before or during the effective period of
+            this Agreement, and including any claim, controversy, or dispute
+            based on any conduct of you or us that occurred before the effective
+            date of this Agreement, including any claims relating in any other
+            aspect of your relationship with us.
+          </p>
+
+          <div style="display: flex; align-items: center">
+            <h3 class="clause-number">21.</h3>
+            <h3 class="clause-title">Binding Individual Arbitration</h3>
+          </div>
+
+          <p class="list-item-identation">
+            <span>a.</span>
+            <span
+              class="list-item-text-padding"
+              style="text-decoration: underline"
+            >
+              General.
+            </span>
+            You and Funder agree that any and all Disputes, except those that
+            are resolved informally or brought in a small claims court, will be
+            arbitrated by a neutral arbitrator who has the power to award the
+            same individual damages and individual relief that a court can. ANY
+            ARBITRATION UNDER THESE GENERAL TERMS WILL ONLY BE ON AN INDIVIDUAL
+            BASIS; CLASS ARBITRATIONS, CLASS ACTIONS, REPRESENTATIVE ACTIONS,
+            AND CONSOLIDATION WITH OTHER ARBITRATIONS ARE NOT PERMITTED. YOU
+            WAIVE ANY RIGHT TO HAVE YOUR CASE DECIDED BY A JURY AND YOU WAIVE
+            ANY RIGHT TO PARTICIPATE IN A CLASS ACTION AGAINST US. If any
+            provision of this arbitration agreement is found unenforceable, the
+            unenforceable provision will be severed, and the remaining
+            arbitration terms will be enforced (but in no case will there be a
+            class or representative arbitration).
+          </p>
+
+          <p class="list-item-identation">
+            <span>b.</span>
+            <span
+              class="list-item-text-padding"
+              style="text-decoration: underline"
+            >
+              Pre-Filing Requirement.
+            </span>
+            Before an arbitration is commenced, we each agree to attempt to
+            avoid the costs of formal dispute resolution by giving each other a
+            full and fair opportunity to address and resolve a Dispute
+            informally. Both parties recognize that this is an important
+            requirement, and that breach of this requirement would be a material
+            breach of this Agreement. To provide this opportunity, before
+            commencing any arbitration or suit, each party agrees to send to the
+            other party a written Notice (“
+            <strong>Notice</strong>”). Any Notice to us should be sent by
+            certified mail to: Mirza Corporation\Attn:**\[address, e-mail,
+            telephone]. Any Notice sent to you will be sent to the contact
+            information on file as indicated in your application. The Notice
+            must: (i) include your name and account number or financing
+            identification number, if any; (ii) provide detailed information
+            sufficient to evaluate the merits of the claiming party’s
+            individualized claim and for the other party to determine if an
+            amicable resolution is possible; and (iii) set forth the specific
+            relief sought, including whatever amount of money is demanded and
+            the means by which the demanding party calculated the claimed
+            damages. Both parties agree that they will attempt to resolve a
+            dispute through an informal negotiation within sixty (60) days from
+            the date the Notice is sent. After that sixty (60) day period and
+            not before, either party may commence arbitration. Each party agrees
+            that state courts in the City of Las Vegas, County of Clark, Nevada,
+            or federal court for the District of Nevada, referenced below, may
+            enter injunctive relief to enforce the pre-filing requirements of
+            this paragraph, including an injunction to stay an arbitration that
+            has been commenced in violation of this paragraph.
+          </p>
+
+          <p class="list-item-identation">
+            <span>c.</span>
+            <span
+              class="list-item-text-padding"
+              style="text-decoration: underline"
+            >
+              Scope of Arbitration.
+            </span>
+            If we are not able to resolve the Dispute by informal negotiation
+            or, as provided below, in a small claims court, all Disputes will be
+            resolved finally and exclusively by binding individual arbitration
+            with a single arbitrator (the “<strong>Arbitrator</strong>”)
+            administered by the American Arbitration Association (www.adr.org)
+            according to this Section and the Consumer Arbitration Rules through
+            the Procedures for the Resolution of Disputes through Document
+            Submission (the “<strong>AAA Rules</strong>”), including Rule
+            D-3(b), except you and we will have the right to file early or
+            summary dispositive motions and so long as the claim is arbitrable
+            under the AAA Rules. Except as set forth above, the Arbitrator shall
+            be responsible for determining all threshold arbitrability issues,
+            including issues relating to whether the terms herein (or any aspect
+            thereof) are enforceable, unconscionable, or illusory and any
+            defense to arbitration, including waiver, delay, laches, or
+            estoppel.
+          </p>
+
+          <p class="list-item-identation">
+            <span>d.</span>
+            <span
+              class="list-item-text-padding"
+              style="text-decoration: underline"
+            >
+              Small Claims Court.
+            </span>
+            Subject to applicable jurisdictional requirements, either party may
+            elect to pursue a Dispute in a local small claims court rather than
+            through arbitration. If a party has already submitted an arbitration
+            demand to the AAA, the other party may, in its sole discretion,
+            inform the AAA that it chooses to have the Dispute heard in small
+            claims court. At that time, the AAA will close the arbitration and
+            the Dispute will be heard in the appropriate small claims court,
+            with no fees due from the arbitration respondent.
+          </p>
+
+          <p class="list-item-identation">
+            <span>e.</span>
+            <span
+              class="list-item-text-padding"
+              style="text-decoration: underline"
+            >
+              Arbitration Procedures.
+            </span>
+            The Federal Arbitration Act, 9 U.S.C. §§ 1-16, including its
+            procedural provisions, fully applies. So long as it is consistent
+            with the AAA Rules, including Rule D-3(b), the arbitration shall
+            occur through the submission of documents to one arbitrator. To the
+            extent any in-person arbitration hearing is required, the
+            arbitration hearing will occur in Las Vegas, Nevada; provided,
+            however, that if circumstances prevent you from traveling to Las
+            Vegas, the Arbitrator may hold an in-person hearing in your
+            hometown. The Arbitrator’s award will be binding on the parties and
+            may be entered as a judgment in any court of competent jurisdiction.
+            We value your privacy, particularly with respect to your financial
+            transactions and data. Each of the parties shall maintain the
+            confidential nature of the arbitration and shall not (without the
+            prior written consent of the other party) disclose to any third
+            party the fact, existence, content, award, or other result of the
+            arbitration, except as may be necessary to enforce, enter, or
+            challenge such award in a court of competent jurisdiction or as
+            otherwise required by applicable law. While an arbitrator may award
+            declaratory or injunctive relief, the Arbitrator may do so only with
+            respect to the individual party seeking relief and only to the
+            extent necessary to provide relief warranted by the individual
+            party’s claim. The Arbitrator’s decision and judgment thereon will
+            not have a precedential or collateral estoppel effect.
+          </p>
+
+          <p class="list-item-identation">
+            <span>f.</span>
+            <span
+              class="list-item-text-padding"
+              style="text-decoration: underline"
+            >
+              Arbitration Fees.
+            </span>
+            In accordance with the AAA Rules, the party initiating the
+            arbitration (either you or us) is responsible for paying the
+            applicable filing fee. For purposes of this arbitration provision,
+            references to you and we also include respective subsidiaries,
+            affiliates, agents, employees, predecessors, successors, and
+            assigns.
+          </p>
+
+          <p class="list-item-identation">
+            <span>g..</span>
+            <span
+              class="list-item-text-padding"
+              style="text-decoration: underline"
+            >
+              Opt Out.
+            </span>
+            You may reject this provision, in which case only a court may be
+            used to resolve any Dispute. To reject this provision, you must send
+            us an opt-out notice (the “<strong>Opt Out</strong>”) within thirty
+            (30) days after you take out a loan or we first provide you with the
+            right to reject this provision. The Opt Out must be mailed to Mirza
+            Corporation\Attn:**\[address, e-mail, telephone]. The Opt Out must
+            include your name, address, phone number and the email address(es)
+            you used to sign up for the financing as well as any identifying
+            number issued by Funder for which you choose to Opt Out. Opting out
+            will not affect any other aspect of the Agreement or your financing,
+            and you will be opted out of arbitration for any subsequent (but not
+            prior) Buy Now Pay Later financing you may receive.
+          </p>
+
+          <p class="list-item-identation">
+            <span>h.</span>
+            <span
+              class="list-item-text-padding"
+              style="text-decoration: underline"
+            >
+              Court Proceedings.
+            </span>
+            Subject to and without waiver of the arbitration provisions above,
+            you agree that any judicial proceedings (other than small claims
+            actions as discussed above) will be brought in and you hereby
+            consent to the exclusive jurisdiction and venue in the state courts
+            in the City of Las Vegas, County of Clark, Nevada, or federal court
+            for the District of Nevada.
+          </p>
+
+          <div style="display: flex; align-items: center">
+            <h3 class="clause-number">22.</h3>
+            <h3 class="clause-title">Intentionally Blank.</h3>
+          </div>
+
+          <div style="display: flex; align-items: center">
+            <h3 class="clause-number">23.</h3>
+            <h3 class="clause-title">State Specific Disclosures.</h3>
+          </div>
+
+          <h3 class="state-header">For CALIFORNIA residents:</h3>
+          <p>
+            A married applicant may apply for a separate financing. As required
+            by California law, you are hereby notified that a negative credit
+            report reflecting on your credit record may be submitted to a credit
+            reporting agency if you fail to fulfill the terms of your credit
+            obligations.
+          </p>
+
+          <h3 class="state-header">For IOWA residents:</h3>
+          <p>
+            NOTICE TO CONSUMER: (1) Do not sign this paper before you read it.
+            (2) You are entitled to a copy of this paper. (3) You may prepay the
+            unpaid balance at any time without penalty and may be entitled to
+            receive a refund of unearned charges in accordance with law.
+          </p>
+          <p>
+            IMPORTANT: READ BEFORE SIGNING. The terms of this Agreement should
+            be read carefully because only those terms in writing are
+            enforceable. No other terms or oral promises not contained in this
+            written contract may be legally enforced. You may change the terms
+            of this agreement only by another written agreement.
+          </p>
+
+          <h3 class="state-header">For KANSAS residents:</h3>
+          <p>
+            NOTICE TO CONSUMER: 1. Do not sign this Agreement before you read
+            it. 2. You are entitled to a copy of this Agreement. 3. You may
+            prepay the unpaid balance at any time without penalty.
+          </p>
+
+          <h3 class="state-header">For MASSACHUSETTS residents:</h3>
+          <p>
+            Massachusetts law prohibits discrimination based upon marital status
+            or sexual orientation.
+          </p>
+
+          <h3 class="state-header">For MISSOURI residents:</h3>
+          <p>
+            Oral or unexecuted agreements or commitments to receive financing,
+            extend credit or to forbear from enforcing repayment of a debt
+            including promises to extend or renew such debt are not enforceable.
+            To protect you (borrower(s)) and us (creditor) from misunderstanding
+            or disappointment, any agreements we reach covering such matters are
+            contained in this writing, which is the complete and exclusive
+            statement of the agreement between us, except as we may later agree
+            in writing to modify it.
+          </p>
+
+          <h3 class="state-header">For NEW JERSEY residents:</h3>
+          <p>
+            The section headings of this Agreement are a table of contents and
+            not contract terms. Because certain provisions of this Agreement are
+            subject to applicable law, they may be void, unenforceable or
+            inapplicable in some jurisdictions. None of these provisions,
+            however, are void, unenforceable or inapplicable in New Jersey.
+          </p>
+
+          <h3 class="state-header">
+            For NEW YORK, RHODE ISLAND, and VERMONT residents:
+          </h3>
+          <p>
+            You understand and agree that we may obtain a consumer credit report
+            in connection with your application and in connection with any
+            update, renewals for extension of any credit as a result of your
+            application. If you ask, you will be informed whether or not such a
+            report was obtained, and if so, the name and address of the agency
+            that furnished the report. You also understand and agree that we may
+            obtain a consumer credit report in connection with the review or
+            collection of any financing made to you as a result of this
+            application or for other legitimate purposes related to such
+            financings.
+          </p>
+
+          <h3 class="state-header">For OHIO residents:</h3>
+          <p>
+            The Ohio laws against discrimination require that all creditors make
+            credit equally available to all credit-worthy customers, and that
+            credit reporting agencies maintain separate credit histories on each
+            individual upon request. The Ohio Civil Rights Commission
+            administers compliance with the law.
+          </p>
+
+          <h3 class="state-header">For WASHINGTON residents:</h3>
+          <p>
+            Oral agreements or oral commitments to loan money, extend credit, or
+            to forbear from enforcing repayment of a debt are not enforceable
+            under Washington law.
+          </p>
+
+          <h3 class="state-header">For UTAH residents:</h3>
+          <p>
+            As required by Utah law, you are hereby notified that a negative
+            credit report reflecting on your credit record may be submitted to a
+            credit reporting agency if you fail to fulfill the terms of your
+            payment obligations. This Agreement is the final expression of the
+            agreement between you and us and it may not be contradicted by
+            evidence of an alleged oral agreement.
+          </p>
+
+          <h3 class="state-header">Married Wisconsin Residents:</h3>
+          <p>
+            No provision of any marital property agreement, unilateral statement
+            or court decree adversely affects our rights, unless you give us a
+            copy of such agreement, statement, or court order before we grant
+            you credit, or we have actual knowledge of the adverse obligation.
+            All obligations under this Agreement will be incurred in the
+            interest of your marriage or family. You understand that we may be
+            required to give notice of this Agreement to your spouse. Married
+            Wisconsin residents must furnish the name and email address of their
+            spouse to us.
+          </p>
+
+          <p>
+            As applicable, Florida documentary stamp tax required by law in the
+            amount of $0.35 for every $100 or fraction thereof of the
+            indebtedness has been paid or will be paid directly to the
+            Department of Revenue. Certificate of Registration No. 7880181947243
+          </p>
+
+          <div class="signatures">
+            <div class="signature-item">
+              <div class="signature-field">
+                <img class="signature" src="{{signature}}" alt="signature" />
+                <p class="signatureDate">{{date}}</p>
+              </div>
+              <div class="signature-labels">
+                <div>Buyer Signs</div>
+                <div>Date</div>
+              </div>
+            </div>
+          </div>
+          <p style="margin-top: 0">IP: {{ip}}</p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

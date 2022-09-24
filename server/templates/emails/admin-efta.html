@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .wrapper {
+        border: 5px solid #eee;
+        border-radius: 5px;
+      }
+
+      .emailHeader {
+        width: auto;
+        background-color: #63944c;
+        color: #fff;
+        height: 90px;
+        max-height: 90px;
+        text-align: center;
+        padding: 10px;
+        border-bottom: 4px solid rgba(241, 182, 73, 0.85);
+        font-size: 150%;
+        line-height: 90px;
+      }
+
+      .merchantHeaderName {
+        text-align: left;
+        color: #fff;
+        font-size: 190%;
+      }
+
+      .emailLogo {
+        height: 40px;
+        max-height: 40px;
+        width: auto;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        color: rgb(47, 97, 183);
+        font-size: 30px;
+        font-weight: 700;
+      }
+
+      .emailLayout {
+        margin: 0 auto;
+        max-width: 600px;
+        min-width: 320px;
+        width: auto;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        word-break: break-word;
+      }
+
+      .emailLayoutMargins {
+        margin-bottom: 50px;
+      }
+
+      .emailSignature {
+        margin-top: 30px;
+        text-align: left;
+        color: #60666d;
+        font-size: 16px;
+      }
+
+      .emailBodyOuterDiv {
+        color: #60666d;
+        font-size: 16px;
+        text-align: left;
+      }
+
+      .emailGreetings {
+        margin-bottom: 30px;
+        font-style: normal;
+        font-weight: normal;
+        color: #60666d;
+        font-size: 20px;
+        text-align: left;
+      }
+
+      .btn-application {
+        font-size: 14px;
+        webkit-font-smoothing: antialiased;
+        cursor: pointer;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -o-user-select: none;
+        user-select: none;
+        display: inline-block;
+        font-weight: normal;
+        text-align: center;
+        text-decoration: none;
+        -moz-transition: all 0.4s ease;
+        -webkit-transition: all 0.4s ease;
+        -o-transition: all 0.4s ease;
+        background-color: #63944c;
+        border-radius: 6px;
+        border-width: 0px;
+        color: rgb(255, 255, 255);
+        font-family: sans-serif;
+        height: auto;
+        transition: all 0.4s ease;
+        padding: 8px 20px;
+        text-shadow: none;
+        width: auto;
+        line-height: 1.5em;
+      }
+
+      .emailBold {
+        font-weight: 700;
+      }
+
+      table,
+      th,
+      td {
+        border: 1px solid black;
+      }
+
+      td {
+        padding: 5px;
+      }
+
+      table {
+        margin: auto;
+        width: 70%;
+        border-collapse: collapse;
+      }
+
+      p {
+        text-align: left;
+        color: #60666d;
+      }
+
+      @media (max-width: 721px) {
+        .emailHeader {
+          max-height: 700px;
+        }
+
+        .modernHealthName {
+          font-size: 50%;
+        }
+
+        .merchantHeaderName {
+          font-size: 80%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="emailHeader">
+        <div class="emailHeaderLogo">
+          <span class="modernHealthName"
+            >ACH, Credit and Debit Card Payment Authorization Form</span
+          >
+          <br />
+        </div>
+      </div>
+      <div class="emailLayout">
+        <div class="emailLayoutMargins">
+          <div class="emailBodyOuterDiv">
+            <h2 class="emailGreetings">Hi {{ userName }}!</h2>
+            <div class="emailBodyMessage">
+              <div class="esigndiv">
+                <p>
+                  In this Authorization, “I,” “me” and “my” mean the person who
+                  signs this Authorization below. “You,” and “your” means
+                  <strong>Mirza</strong>, or any assignee.
+                </p>
+
+                <p>
+                  By signing below, I authorize you to initiate a one-time
+                  charge and/or regularly scheduled recurring charges against my
+                  credit card or debit card account identified below, or a
+                  one-time charge and/or regularly scheduled recurring charges
+                  by ACH debit entry from my deposit account identified below,
+                  and to credit those amounts (when received by you) to the
+                  amounts due from me to you under
+                  <strong style="white-space: nowrap"
+                    >RETAIL INSTALLMENT CONTRACT</strong
+                  >, Account Number:
+                  <strong>{{ applicationReference }}</strong>. If necessary, I
+                  also authorize you to initiate transactions to correct any
+                  erroneous payment transaction. I also authorize you to
+                  initiate a one-time transaction to collect a fee of
+                  <strong>$25</strong>
+                  if any payment is rejected by my bank due to insufficient
+                  funds in my account or available credit on my credit card
+                  account, and/or to collect any late fee due under my contract
+                  identified above. I understand that each transaction will
+                  appear on my bank statement.
+                </p>
+
+                <p>
+                  <strong
+                    >Type of Payment (check applicable box and complete
+                    information):
+                  </strong>
+                </p>
+
+                <div>
+                  <label class="checkbox-container"
+                    >Credit or Debit Card Payment
+                    <input type="checkbox" checked disabled />
+                    <span class="check-mark"></span>
+                  </label>
+                </div>
+                <br />
+
+                <div style="border: 1px solid #000; padding: 10px">
+                  <strong><p>Credit/Debit Card Information</p></strong>
+
+                  <div style="display: grid; grid-template-columns: 200px auto">
+                    <span>Account Type:</span>
+                    <div>
+                      <label class="checkbox-container"
+                        >Visa
+                        <input
+                          type="checkbox"
+                          :checked="cardIssuer === 'Visa'"
+                          disabled
+                        />
+                        <span class="check-mark"></span>
+                      </label>
+
+                      <label class="checkbox-container"
+                        >MasterCard
+                        <input
+                          type="checkbox"
+                          :checked="cardIssuer === 'Mastercard'"
+                          disabled
+                        />
+                        <span class="check-mark"></span>
+                      </label>
+
+                      <label class="checkbox-container"
+                        >Amex
+                        <input
+                          type="checkbox"
+                          :checked="cardIssuer === 'American Express'"
+                          disabled
+                        />
+                        <span class="check-mark"></span>
+                      </label>
+
+                      <label class="checkbox-container"
+                        >Discover
+                        <input
+                          type="checkbox"
+                          :checked="cardIssuer === 'Discover'"
+                          disabled
+                        />
+                        <span class="check-mark"></span>
+                      </label>
+
+                      <label class="checkbox-container"
+                        >Other
+                        <input
+                          type="checkbox"
+                          :checked="
+                        !(
+                          cardIssuer === 'Visa' ||
+                          cardIssuer === 'Mastercard' ||
+                          cardIssuer === 'American Express' ||
+                          cardIssuer === 'Discover'
+                        )
+                      "
+                          disabled
+                        />
+                        <span class="check-mark"></span>
+                      </label>
+                    </div>
+
+                    <span> Card Issuer Name:</span>
+                    <span>{{ cardIssuer }}</span>
+
+                    <span>Cardholder Name:</span>
+                    <span>{{ cardHolder }}</span>
+
+                    <span> Card Account Number: </span>
+                    <span>{{ cardNumber }}</span>
+
+                    <span> Card Expiration Date: </span>
+                    <span>{{ expirationDate }}</span>
+
+                    <span>CVV:</span>
+                    <span>{{ cardCode }}</span>
+                  </div>
+
+                  <div>
+                    Cardholder Billing Address:
+                    <div>
+                      <div
+                        style="
+                          padding-left: 40px;
+                          display: grid;
+                          grid-template-columns: 120px auto;
+                        "
+                      >
+                        <span>Address:</span>
+                        <span>{{ street }}</span>
+
+                        <span>City:</span>
+                        <span>{{ city }}</span>
+
+                        <span>State:</span>
+                        <span>{{ selectedState }}</span>
+
+                        <span>Zip Code:</span>
+                        <span>{{ zipCode }}</span>
+
+                        <span>Phone No.:</span>
+                        <span> {{ phones[0].phone }} </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <br />
+
+                <strong><p>Payment Frequency:</p></strong>
+
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: baseline;
+                  "
+                >
+                  <div>
+                    <label class="checkbox-container"
+                      >One-Time Payment
+                      <input
+                        type="checkbox"
+                        :checked="selectedOffer.downPayment > 0"
+                        disabled
+                      />
+                      <span class="check-mark"></span>
+                    </label>
+                  </div>
+
+                  <div>
+                    <label
+                      v-if="selectedOffer.downPayment > 0"
+                      style="margin-left: 80px"
+                    >
+                      Payment date:
+                      <strong>{{ todayDate }}</strong></label
+                    >
+                    <label v-else> Payment date: ____________________ </label>
+                  </div>
+
+                  <div>
+                    <label
+                      v-if="selectedOffer.downPayment > 0"
+                      style="margin-left: 80px"
+                    >
+                      Payment amount:
+                      <strong>
+                        {{ selectedOffer.downPayment | currency }}</strong
+                      ></label
+                    >
+                    <label v-else> Payment amount: ____________________ </label>
+                  </div>
+                </div>
+
+                <div>
+                  <label class="checkbox-container"
+                    >Recurring Payments.
+                    <input type="checkbox" checked disabled />
+                    <span class="check-mark"></span>
+                  </label>
+                  My payments, in the amount of
+                  <strong v-if="selectedOffer.promoSelected"
+                    >{{ selectedOffer.promoMonthlyPayment | currency }}</strong
+                  >
+                  <strong v-else
+                    >{{ selectedOffer.monthlyPayment | currency }}</strong
+                  >, will start on <strong>{{ loanStartDate }}</strong>, and
+                  will occur monthly thereafter for a total of
+                  <strong v-if="selectedOffer.promoSelected"
+                    >{{ selectedOffer.promoTerm }}</strong
+                  ><strong v-else>{{ selectedOffer.term }}</strong>
+                  months. If any payment date falls on a weekend or holiday, I
+                  understand and agree that the payment may be executed on the
+                  next business day. If my payment amount changes, I will
+                  receive notice from you at least 10 days prior to the payment
+                  being collected. If the outstanding balance I owe on my
+                  contract identified above is less than the payment amount
+                  stated above, I understand and agree that the final payment
+                  will be an amount equal to my total outstanding balance.
+                </div>
+
+                <div>
+                  <ol>
+                    <li>
+                      I authorize you to initiate the credit card, debit card or
+                      ACH payment(s) described in this authorization form
+                      according to the terms outlined above. If I have
+                      authorized recurring payments, I understand that this
+                      authorization will remain in effect until my contract
+                      identified above is paid in full or I cancel this
+                      authorization in writing (at
+                      <strong
+                        >400 Spectrum Center Drive, Suite 350, Irvine CA
+                        92618</strong
+                      >). I agree to notify you in writing of any changes in my
+                      account information or termination of this authorization
+                      at least three (3) business days prior to the next billing
+                      date. I may also notify the financial institution that
+                      holds my deposit account to stop payments under this
+                      authorization at least three (3) business days before a
+                      scheduled payment date. This payment authorization is for
+                      the type of payment indicated above. I certify that I am
+                      an authorized user of any credit or debit card identified
+                      above, or an authorized signer on any deposit account
+                      identified above, and that I will not dispute any
+                      scheduled payment provided the transaction corresponds to
+                      the terms of this authorization form. I request the
+                      financial institution that holds the account to honor all
+                      payments initiated in accordance with this authorization
+                      form. I acknowledge receipt of a completed copy of this
+                      authorization form for my records.
+                    </li>
+                  </ol>
+                </div>
+
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: baseline;
+                  "
+                >
+                  <span>
+                    SIGNATURE:
+                    <img
+                      v-if="isEFTAChecked"
+                      style="max-width: 100%; height: auto"
+                      width="300"
+                      height="200"
+                      v-bind:src="ricSignature"
+                    />
+                    <span v-else>
+                      ________________________________________</span
+                    >
+                  </span>
+                  <span style="margin-left: 80px"> DATE: {{ todayDate }}</span>
+                </div>
+                <div>
+                  PRINT NAME:
+                  <span
+                    >{{ userFirstName | capitalize }} {{ userLastName |
+                    capitalize }}</span
+                  >
+                </div>
+              </div>
+              <p style="margin: 10px" class="ipDatePdf">Ip: {{ ip }}</p>
+              <div class="text-center" style="margin-bottom: 20px">
+                <button
+                  type="button"
+                  data-dismiss="modal"
+                  @click="showModalElectr = false"
+                  class="
+                    btn-application btn btn-primary btn-lg
+                    submit-form-lg
+                    finalizeButton
+                  "
+                >
+                  Continue
+                </button>
+              </div>
+              <br />
+              <br />
+            </div>
+          </div>
+          <div class="emailSignature">
+            Thanks!<br />
+
+            Team Mirza <br />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<VueFinalModal
+  v-model="showModalElectr"
+  classes="modal-container"
+  content-class="modal-content"
+>
+  <span class="modal__title">
+    <h4 style="margin: 0px; text-align: center"></h4>
+  </span>
+  <br />
+
+  <div class="modal__content" style="padding: 0 10px 0 10px"></div>
+</VueFinalModal>
