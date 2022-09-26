@@ -124,6 +124,9 @@ export const button = css`
       border: 1px solid var(--color-purple-4);
       background: var(--color-purple-4);
       color: #fff;
+      & svg path {
+        stroke: #fff;
+      }
     }
 
     &:disabled {
@@ -173,7 +176,7 @@ export const button = css`
 
 export const buttonCircle = css`
   background: #fff;
-  border: 1px solid var(--color-primary-green-1);
+  border: 1px solid var(--color-green-1);
   border-radius: 50%;
   width: 36px;
   height: 36px;

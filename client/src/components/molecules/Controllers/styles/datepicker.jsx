@@ -38,7 +38,7 @@ export const datePickerMui = css`
 
     &.Mui-focused {
       & fieldset {
-        border-bottom: 1px solid var(--color-primary-green-1);
+        border-bottom: 1px solid var(--color-green-1);
       }
     }
   }
@@ -47,7 +47,7 @@ export const datePickerMui = css`
   & .MuiInputBase-input {
     font-size: 16px;
     font-size: 14px;
-    color: var(--color-primary-dark-1);
+    color: #5a514f;
     padding: 20px 16px;
     height: 58px;
     box-sizing: border-box;
@@ -67,7 +67,7 @@ export const datePickerMui = css`
       /* LABEL UP */
       &.Mui-focused,
       &.MuiFormLabel-filled {
-        color: var(--color-primary-green-1);
+        color: var(--color-green-1);
         transform: translate(16px, -50%);
         font-size: 12px;
       }
@@ -83,12 +83,12 @@ export const datePickerMui = css`
   /* ON VALUE PRESENCE */
   &.isFilled {
     & .MuiOutlinedInput-root.MuiInputBase-root fieldset {
-      border-bottom: 1px solid var(--color-primary-green-1);
+      border-bottom: 1px solid var(--color-green-1);
     }
 
     & .MuiSvgIcon-root {
       & path {
-        fill: var(--color-primary-green-1);
+        fill: var(--color-green-1);
       }
     }
   }
@@ -100,12 +100,12 @@ export const datePickerMui = css`
     }
     /* LABEL */
     .MuiInputLabel-root.MuiInputLabel-outlined.MuiFormLabel-root {
-      color: var(--color-functional-red-1);
+      color: #bd5555;
     }
 
     /* FIELD BORDER */
     & .MuiOutlinedInput-root.MuiInputBase-root fieldset {
-      border-color: var(--color-functional-red-1);
+      border-color: #bd5555;
     }
   }
 `;

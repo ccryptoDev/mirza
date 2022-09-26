@@ -22,13 +22,13 @@ const Button = styled.button`
 
     & svg {
       & path {
-        fill: var(--color-primary-dark-1);
+        fill: #5a514f;
       }
     }
   }
 
   &.save {
-    background: var(--color-primary-green-1);
+    background: var(--color-green-1);
     & svg {
       height: 7px;
       width: 11px;
@@ -39,13 +39,13 @@ const Button = styled.button`
   }
 
   &.cancel {
-    background: var(--color-primary-green-5);
+    background: var(--color-green-5);
     & svg {
       height: 13px;
       width: 13px;
     }
     & path {
-      fill: var(--color-primary-green-1);
+      fill: var(--color-green-1);
     }
   }
   .preloader {

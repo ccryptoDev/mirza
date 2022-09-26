@@ -7,7 +7,7 @@ const Button = styled.div`
   width: 36px;
   height: 36px;
 
-  border: 1px solid var(--color-primary-green-1);
+  border: 1px solid var(--color-green-1);
   box-sizing: border-box;
   border-radius: 50%;
   background: #fff;

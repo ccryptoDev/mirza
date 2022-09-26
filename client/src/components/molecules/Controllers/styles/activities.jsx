@@ -22,7 +22,7 @@ export const isError = css`
   }
   &.isError {
     & .input-wrapper .field-label {
-      color: var(--color-functional-red-1);
+      color: #bd5555;
     }
     & .input-wrapper {
       & input,
@@ -32,7 +32,7 @@ export const isError = css`
         &:hover,
         &:active,
         &:focus {
-          border-color: var(--color-functional-red-1);
+          border-color: #bd5555;
         }
       }
     }

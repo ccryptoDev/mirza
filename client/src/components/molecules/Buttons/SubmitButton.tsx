@@ -18,6 +18,10 @@ const Btn = styled(Button)`
   &.loading {
     cursor: wait;
   }
+
+  .MuiCircularProgress-root svg {
+    height: 100%;
+  }
 `;
 
 const SubmitButton = ({
@@ -33,7 +37,7 @@ const SubmitButton = ({
   loading?: boolean;
   children: any;
   type?: "button" | "submit";
-  disabled: boolean;
+  disabled?: boolean;
 }) => {
   return (
     <Btn
