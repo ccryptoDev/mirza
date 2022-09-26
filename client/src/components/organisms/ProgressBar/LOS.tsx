@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 // INTER PAGE STEPPER THAT SHOWS DYNAMIC ANIMATION ON PAGE MOUNT
@@ -9,6 +9,7 @@ const ProgressBar = styled.div<{ progress: number }>`
   border-radius: 5px;
   position: relative;
   background: #c4c4c4;
+
   &:before {
     content: "";
     height: 100%;
@@ -18,7 +19,7 @@ const ProgressBar = styled.div<{ progress: number }>`
     top: 0;
     left: 0;
     transition: all 0.3s;
-    width: ${(props) => `${props.progress}%` || 0};
+    width: ${(props) => `${props?.progress}%` || 0};
   }
 `;
 
@@ -31,13 +32,11 @@ const LinearDeterminate = ({
 }) => {
   const step = 100 / numberOfSteps;
   // (currentStepNumber - 1) is meant to set the progress bar to previous page state to create dynamic animation on the page load
-  const [progress, setProgress] = React.useState(
-    step * (currentStepNumber - 1)
-  );
+  const [progress, setProgress] = useState(step * (currentStepNumber - 1));
 
-  useEffect(() => {
-    setProgress(step * currentStepNumber);
-  }, [currentStepNumber, step]);
+  // useEffect(() => {
+  //   setProgress(step * currentStepNumber);
+  // }, [currentStepNumber, step]);
 
   useEffect(() => {
     // this effect us used to set the progress bar to previous page state and add animation of dynamic progress on new page load

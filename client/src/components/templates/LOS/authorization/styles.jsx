@@ -10,7 +10,7 @@ export const container = css`
 
 export const header = css`
   .heading {
-    color: var(--color-primary-green-1);
+    color: var(--color-green-1);
     text-align: center;
     margin: 24px 0;
   }

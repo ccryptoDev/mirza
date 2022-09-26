@@ -27,7 +27,7 @@ const Wrapper = styled.div`
   }
 
   & .currentStep {
-    color: var(--color-primary-green-1);
+    color: var(--color-green-1);
     font-weight: 700;
   }
 `;
