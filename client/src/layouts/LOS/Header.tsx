@@ -23,13 +23,21 @@ const Wrapper = styled.div`
     align-items: center;
     justify-content: space-between;
 
+    .placeholder {
+      width: 75px;
+    }
+
+    &.center {
+      justify-content: center;
+    }
+
     & .text {
       padding: 0;
     }
   }
 `;
 
-const Header = ({ goBackHandler }: any) => {
+export const Header1 = ({ goBackHandler }: any) => {
   return (
     <Wrapper>
       <Container className="container">
@@ -39,11 +47,21 @@ const Header = ({ goBackHandler }: any) => {
             Back
           </Button>
           <Logo />
-          <div />
+          <div className="placeholder" />
         </div>
       </Container>
     </Wrapper>
   );
 };
 
-export default Header;
+export const Header2 = () => {
+  return (
+    <Wrapper>
+      <Container className="container">
+        <div className="header-content-wrapper center">
+          <Logo />
+        </div>
+      </Container>
+    </Wrapper>
+  );
+};
