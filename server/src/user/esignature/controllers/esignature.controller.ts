@@ -34,7 +34,6 @@ export class EsignatureController {
     @Body() saveSignatureDto: SaveSignatureDto,
     @Req() request: Request,
   ) {
-    saveSignatureDto.screenTrackingId = request.user.screenTracking;
     try {
       const response = await this.esignatureService.saveSignature(
         saveSignatureDto,

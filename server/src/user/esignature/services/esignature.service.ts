@@ -39,6 +39,7 @@ export class EsignatureService {
       request.id,
       saveSignatureDto,
     );
+    
     const { screenTrackingId, hiddenSignatureId, imgBase64 } = saveSignatureDto;
     const ip: string = this.appService.getIPAddress(request);
     const userAgent: string = request.headers['user-agent'];
@@ -49,7 +50,6 @@ export class EsignatureService {
         },
         relations: ['user'],
       });
-
     if (!screenTracking) {
       const errorMessage = `Screen tracking id ${screenTracking.id} not found`;
       this.logger.error(
