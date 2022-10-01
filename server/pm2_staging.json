@@ -11,7 +11,7 @@
       "env": {
         "NODE_ENV": "test",
         "PORT": 19191,
-        
+
         "PLAID_CLIENT_ID": "62fce68c8e95650013d547e5",
         "PLAID_SECRET": "16df569da348fe5aa2bcde151352d5"
       },

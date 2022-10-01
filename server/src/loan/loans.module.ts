@@ -29,6 +29,7 @@ import loanPaymentProConfig from './payments/loanpaymentpro/loanpaymentpro.confi
 import { OffersController } from './offers/controllers/offers.controller';
 import { OffersService } from './offers/services/offers.service';
 import { PaymentProviderModule } from '../payment-provider/payment-provider.module';
+import { ChildcareModule } from './childcare/childcare.module';
 
 @Module({
   imports: [
@@ -45,6 +46,7 @@ import { PaymentProviderModule } from '../payment-provider/payment-provider.modu
     HtmlParserModule,
     SmsModule,
     PaymentProviderModule,
+    ChildcareModule,
   ],
   providers: [
     ApplicationService,

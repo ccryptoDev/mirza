@@ -1,6 +1,6 @@
 import AWS from 'aws-sdk';
 
-const Bucket = 'bzwr-mirza';
+const Bucket = 'mirza-staging';
 const clientConfig: AWS.S3.ClientConfiguration = {
   accessKeyId: 'AKIAYNEOQTI4FD65UGWW',
   apiVersion: '2006-03-01',
