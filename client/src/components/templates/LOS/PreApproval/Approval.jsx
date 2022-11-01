@@ -1,15 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { useHistory } from "react-router-dom";
 import {
   H2 as Heading,
   H3 as Heading2,
   TextM as SubHeading,
 } from "../../../atoms/Typography";
 import { ReactComponent as Arrow } from "../../../../assets/svgs/icons/arrow/arrow-right.svg";
-import { routes } from "../../../../routes/los/routes";
+import { pageName } from "../../../../routes/los/routes";
 import Button from "../../../molecules/Buttons/SubmitButton";
 import { formatCurrency } from "../../../../utils/formats";
+import { updateApplicationInfo } from "../../../../api/application";
+import { useUserData } from "../../../../contexts/user";
 
 const Wrapper = styled.div`
   display: flex;
@@ -24,9 +25,20 @@ const Wrapper = styled.div`
 `;
 
 const Form = ({ data }) => {
-  const history = useHistory();
-  const onSubmitHandler = () => {
-    history.push(routes.FORGIVENESS_FULL);
+  const [loading, setLoading] = useState(false);
+  const { fetchUser, screenId } = useUserData();
+
+  const onSubmitHandler = async () => {
+    setLoading(true);
+    const payload = {
+      currentScreen: pageName.FORGIVENESS_FULL,
+      screenId,
+    };
+    const result = await updateApplicationInfo(payload);
+    if (result && !result.error) {
+      await fetchUser(screenId);
+    }
+    setLoading(false);
   };
   return (
     <Wrapper>
@@ -41,7 +53,11 @@ const Form = ({ data }) => {
       </Heading>
 
       <div>
-        <Button className="contained icon" onClick={onSubmitHandler}>
+        <Button
+          className="contained icon"
+          onClick={onSubmitHandler}
+          loading={loading}
+        >
           Begin application
           <Arrow />
         </Button>
