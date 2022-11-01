@@ -1,14 +1,16 @@
-import React from "react";
-import { useHistory } from "react-router-dom";
+import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { H2 as Heading, TextM as SubHeading } from "../../../atoms/Typography";
 import Input from "../../../molecules/Controllers/FormattedField";
 import Checkbox from "../../../molecules/Controllers/CheckBox/Custom";
-import { Button } from "../../../atoms/Buttons/Regular";
+import Button from "../../../molecules/Buttons/SubmitButton";
 import { ReactComponent as Arrow } from "../../../../assets/svgs/icons/arrow/arrow-right.svg";
 import { validate } from "./validation";
-import { routes } from "../../../../routes/los/routes";
+import { pageName } from "../../../../routes/los/routes";
 import { useForm } from "../../../../hooks/form-control";
+import { updateApplicationInfo } from "../../../../api/application";
+import { useUserData } from "../../../../contexts/user";
 
 const Wrapper = styled.div`
   & .heading {
@@ -45,17 +47,29 @@ const initForm = () => {
 
 const Form = () => {
   const { form, setForm, onChangeHandler } = useForm({ initForm });
-  const history = useHistory();
+  const { fetchUser, screenId } = useUserData();
+  const [loading, setLoading] = useState(false);
 
-  const onSubmitHandler = (e: any) => {
+  const onSubmitHandler = async (e: any) => {
     e.preventDefault();
     const [isValid, updatedForm] = validate(form);
-    if (isValid) {
-      history.push(routes.CHILDCARE);
+    setLoading(true);
+    if (isValid && screenId) {
+      const payload = {
+        annualIncome: +form.income.value,
+        screenId,
+        currentScreen: pageName.CHILDCARE,
+      };
+      const result = await updateApplicationInfo(payload);
+      if (result && !result.error) {
+        await fetchUser(screenId);
+      }
     } else {
       setForm(updatedForm);
     }
+    setLoading(false);
   };
+
   return (
     <Wrapper>
       <Heading className="heading">Annual income</Heading>
@@ -85,7 +99,7 @@ const Form = () => {
           label="I confirm that my information is correct."
         />
 
-        <Button className="contained icon" type="submit">
+        <Button className="contained icon" type="submit" loading={loading}>
           Next
           <Arrow />
         </Button>
