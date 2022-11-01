@@ -32,7 +32,7 @@ const SubmitButton = ({
   type = "button",
   disabled = false,
 }: {
-  onClick: any;
+  onClick?: any;
   className?: string;
   loading?: boolean;
   children: any;

@@ -5,27 +5,20 @@ import { IResponse } from "./types";
 import { getRequester } from "./requester";
 
 interface IArgyleData {
-  userId: string;
-  accountId: string;
+  argyleUserId: string;
+  argyleAccountId: string;
+  argyleLinkItemId: string;
+  screenId: string;
 }
 
 export async function saveArgyleDataApi(body: IArgyleData) {
   let response: IResponse = { data: null, error: null };
+  const { screenId } = body;
   try {
-    response = await getRequester().post(
-      `${baseUrl}/application/saveArgyleData`,
+    response = await axios.post(
+      `${baseUrl}/application/${screenId}/argyle-linkings`,
       body
     );
-  } catch (error) {
-    response.error = error;
-  }
-  return response;
-}
-
-export async function getArgyleData(body: IArgyleData) {
-  let response: IResponse = { data: null, error: null };
-  try {
-    response = await axios.post(`${baseUrl}/application/getArgyleData`, body);
   } catch (error) {
     response.error = error;
   }
@@ -35,16 +28,20 @@ export async function getArgyleData(body: IArgyleData) {
 export const connectArgyle = async ({
   cb,
   noEmployerHandler,
+  employerId,
 }: {
   cb?: any;
   noEmployerHandler?: any;
+  employerId: string;
 }) => {
+  console.log(employerId);
   if ((global as any).Argyle) {
     const argyle = (global as any).Argyle.create({
       apiHost: "https://api-sandbox.argyle.io/v1",
       pluginKey: "017ba5ef-5218-1db8-9cd2-fb41cd455a19",
       companyName: "Mirza",
       showCloseButton: true,
+      linkItems: [employerId],
       searchScreenTitle:
         "We need to verify your income by linking your employer's payroll software",
       searchScreenSubtitle: "",
