@@ -28,24 +28,25 @@ const Wrapper = styled.div`
 `;
 
 const tableData = ({
-  totalRepayment = 0,
-  amountForgiven = 1254,
-  totalForgiveness = 12380,
+  amountFinanced,
+  financedCharge,
+  term = "--",
+  totalPayments = 0,
 }) => [
   { label: "Loan forgiveness date", value: parseDateToMDY("02/02/2024") },
-  { label: "Term length", value: "24 months" },
-  { label: "Total loan repayments", value: formatCurrency(totalRepayment) },
+  { label: "Term length", value: term },
+  { label: "Total loan repayments", value: formatCurrency(totalPayments) },
   {
     label: "Amount forgiven per quarter",
-    value: formatCurrency(amountForgiven),
+    value: formatCurrency(amountFinanced),
   },
   {
     label: "Total forgiveness amount",
-    value: formatCurrency(totalForgiveness),
+    value: formatCurrency(financedCharge),
   },
 ];
 
-const Body = () => {
+const Body = ({ data = {} }) => {
   return (
     <Container>
       <Wrapper>
@@ -53,10 +54,10 @@ const Body = () => {
           12 month disbursement plan <br />
           24 months forgiveness
         </H4>
-        <H3 className="amount">{formatCurrency(1037.6)}/mo</H3>
+        <H3 className="amount">${data?.monthPayment}</H3>
         <Text>
           These loan payments will be disbursed over 12 months, with the first
-          payment occuring on [date] and the final payment occuring on [date].
+          payment occurring on [date] and the final payment occurring on [date].
         </Text>
         <Text>
           Your company participates in loan forgiveness, meaning that after the
@@ -66,7 +67,7 @@ const Body = () => {
       </Wrapper>
       <Wrapper>
         <H4 className="heading">Forgiveness details</H4>
-        <Table items={tableData({})} />
+        <Table items={tableData(data)} />
       </Wrapper>
     </Container>
   );
