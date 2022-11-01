@@ -2,9 +2,9 @@ export const validate = (form) => {
   const newForm = { ...form };
   let isValid = true;
 
-  if (!form.income.value) {
+  if (!form.requestedAmount.value) {
     isValid = false;
-    newForm.income.message = "Enter your income amount";
+    newForm.requestedAmount.message = "Enter amount";
   }
 
   return [isValid, newForm];

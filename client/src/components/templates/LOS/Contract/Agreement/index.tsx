@@ -5,8 +5,10 @@ import { toast } from "react-toastify";
 import PromissoryNote from "./Content";
 import SignaturePad from "./SignaturePad";
 import Loader from "../../../../molecules/Loaders/LoaderWrapper";
-import { mockRequest } from "../../../../../utils/mockRequest";
 import { Button } from "../../../../atoms/Buttons/Regular";
+import { saveSignatureApi } from "../../../../../api/application";
+import { useUserData } from "../../../../../contexts/user";
+import { stringToBase64 } from "../../../../../utils/base64";
 
 const Styles = styled.div`
   width: 100%;
@@ -104,33 +106,18 @@ const Contract = () => {
   const [loading, setLoading] = useState(false);
   const textContent = useRef<any>();
   const [expanded, setExpanded] = useState(false);
-
-  // const fetchRic = async () => {
-  //   const userSignature = user?.data?.doc?.signature;
-  //   if (screenTrackingId) {
-  //     const result = await fetchContractApi(screenTrackingId);
-  //     if (result && result?.data && !result.error) {
-  //       setRicData(result.data);
-  //       setSignature(userSignature);
-  //     } else if (result?.error) {
-  //       const { message } = result?.error;
-  //       setError(message);
-  //     }
-  //   }
-  // };
+  const { screenId, fetchUser } = useUserData();
 
   const save = async () => {
     if (!sigCanvas.current.isEmpty()) {
       setLoading(true);
-      await mockRequest();
       const sigURI = sigCanvas.current.getTrimmedCanvas().toDataURL();
+      const payload = {
+        screenTrackingId: screenId,
+        imgBase64: stringToBase64(sigURI),
+      };
+      await saveSignatureApi(payload);
       setSignature(sigURI);
-      // const payload = {
-      //   userId: user?.data?.id,
-      //   data: sigURI.replace(",", "removeit").split("removeit")[1],
-      // };
-      // await saveSignature(payload);
-      // await fetchUser();
       toast.success("signature has been saved");
       setLoading(false);
     }

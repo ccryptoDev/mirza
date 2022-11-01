@@ -1,14 +1,16 @@
-import React from "react";
-import { useHistory } from "react-router-dom";
+import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { H2 as Heading, TextM as SubHeading } from "../../../atoms/Typography";
 import Input from "../../../molecules/Controllers/FormattedField";
-import { Button } from "../../../atoms/Buttons/Regular";
+import Button from "../../../molecules/Buttons/SubmitButton";
 import { ReactComponent as Arrow } from "../../../../assets/svgs/icons/arrow/arrow-right.svg";
 import { validate } from "./validation";
-import { routes } from "../../../../routes/los/routes";
+import { pageName } from "../../../../routes/los/routes";
 import { useForm } from "../../../../hooks/form-control";
 import Note from "./Note";
+import { updateApplicationInfo } from "../../../../api/application";
+import { useUserData } from "../../../../contexts/user";
 
 const Wrapper = styled.div`
   & form {
@@ -34,24 +36,37 @@ const Wrapper = styled.div`
 
 const initForm = () => {
   return {
-    income: { value: "", message: "" },
-    agree: { value: "", message: "" },
+    requestedAmount: { value: "", message: "" },
   };
 };
 
 const Form = () => {
   const { form, setForm, onChangeHandler } = useForm({ initForm });
-  const history = useHistory();
+  const { fetchUser } = useUserData();
+  const [loading, setLoading] = useState(false);
+  const params: any = useParams();
 
-  const onSubmitHandler = (e: any) => {
+  const onSubmitHandler = async (e: any) => {
     e.preventDefault();
+    setLoading(true);
     const [isValid, updatedForm] = validate(form);
-    if (isValid) {
-      history.push(routes.PRE_APPROVAL);
+    const screenId: string = params?.id;
+    if (isValid && screenId) {
+      const payload = {
+        requestedAmount: +form.requestedAmount.value,
+        screenId,
+        currentScreen: pageName.PRE_APPROVAL,
+      };
+      const result = await updateApplicationInfo(payload);
+      if (result && !result.error) {
+        await fetchUser(screenId);
+      }
     } else {
       setForm(updatedForm);
     }
+    setLoading(false);
   };
+
   return (
     <Wrapper>
       <form onSubmit={onSubmitHandler}>
@@ -63,15 +78,15 @@ const Form = () => {
           </SubHeading>
           <Input
             onChange={onChangeHandler}
-            value={form.income.value}
-            message={form.income.message}
-            name="income"
+            value={form.requestedAmount.value}
+            message={form.requestedAmount.message}
+            name="requestedAmount"
             thousandSeparator
             prefix="$"
           />
         </div>
         <Note />
-        <Button className="contained icon" type="submit">
+        <Button className="contained icon" type="submit" loading={loading}>
           Next
           <Arrow />
         </Button>
