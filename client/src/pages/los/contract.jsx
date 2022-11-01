@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { useHistory } from "react-router-dom";
 import Layout from "../../layouts/LOS";
 import ProgressBar from "../../components/templates/LOS/ProgressBar";
-import { routes } from "../../routes/los/routes";
+import { routes, pageName } from "../../routes/los/routes";
 import Header from "../../components/templates/LOS/Components/Header-2";
 import Footer from "../../components/templates/LOS/Components/Footer";
 import { ReactComponent as Img } from "../../assets/svgs/illustrations/sing-contract.svg";
 import { useUserData } from "../../contexts/user";
 import Agreement from "../../components/templates/LOS/Contract/Agreement";
 import Checkbox from "../../components/molecules/Controllers/CheckBox/Custom";
-import { mockRequest } from "../../utils/mockRequest";
+import PrivateRoute from "../../routes/los/PrivateRoute";
+import { finalizeContractApi } from "../../api/application";
 
 const Wrapper = styled.div`
   display: flex;
@@ -25,14 +25,14 @@ const Wrapper = styled.div`
 
 const Contract = () => {
   const [loading, setLoading] = useState(false);
-  const { screenTrackingId, user, userId } = useUserData();
+  const { goToPage } = useUserData();
   const [agree, setAgree] = useState(false);
-  const history = useHistory();
 
   const onSubmitHandler = async () => {
     setLoading(true);
-    await mockRequest(3000);
-    history.push(routes.COMPLETION);
+    await finalizeContractApi();
+    await goToPage(pageName.FORGIVENESS_FULL);
+    setLoading(false);
   };
 
   const subheading = (
@@ -52,33 +52,31 @@ const Contract = () => {
   );
 
   return (
-    <Layout>
-      <ProgressBar currentRoute={routes.CONTRACT} />
-      <Wrapper>
-        <Header
-          img={Img}
-          heading="Your Contract ACH Authorization"
-          subheading={subheading}
-        />
-        <Agreement
-          screenTrackingId={screenTrackingId}
-          user={user}
-          userId={userId}
-        />
-        <Checkbox
-          value={agree}
-          onChange={(e) => setAgree(e.target.value)}
-          label="I certify that I have provided accurate information. I have read and understood all of the terms of this Loan Agreement, and  I willingly enter into this contract. "
-        />
-        <Footer
-          confirmButtonText="Agree to contract"
-          onSubmit={onSubmitHandler}
-          icon="check"
-          disabled={!agree}
-          loading={loading}
-        />
-      </Wrapper>
-    </Layout>
+    <PrivateRoute route={routes.CONTRACT}>
+      <Layout>
+        <ProgressBar currentRoute={routes.CONTRACT} />
+        <Wrapper>
+          <Header
+            img={Img}
+            heading="Your Contract ACH Authorization"
+            subheading={subheading}
+          />
+          <Agreement />
+          <Checkbox
+            value={agree}
+            onChange={(e) => setAgree(e.target.value)}
+            label="I certify that I have provided accurate information. I have read and understood all of the terms of this Loan Agreement, and  I willingly enter into this contract. "
+          />
+          <Footer
+            confirmButtonText="Agree to contract"
+            onSubmit={onSubmitHandler}
+            icon="check"
+            disabled={!agree}
+            loading={loading}
+          />
+        </Wrapper>
+      </Layout>
+    </PrivateRoute>
   );
 };
 
