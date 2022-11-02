@@ -3,7 +3,7 @@ export const BASE_ROUTE = "/application";
 export const pageName = {
   LOGIN: "login",
   FORGOT_PASSWORD: "password-recover",
-  INCOME: "income",
+  INCOME: "apply",
   CHILDCARE: "childcare",
   PRE_APPROVAL: "pre-approval",
   ARGYLE: "argyle",
