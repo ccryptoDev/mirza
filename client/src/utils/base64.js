@@ -18,3 +18,7 @@ export function getBase64(file) {
     };
   });
 }
+
+export function stringToBase64(string) {
+  return string.replace("data:", "").replace(/^.+,/, "");
+}
